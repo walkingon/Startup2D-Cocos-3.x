@@ -13,6 +13,6 @@ export class LoadingPage extends BasePage {
     }
 
     private jumpHomePage(){
-        UIMgr.open(HomePage)
+        UIMgr.open(HomePage, {from: 'LoadingPage'})
     }
 }
