@@ -3,6 +3,7 @@ import { BasePage } from '../../framework/base/BasePage';
 import { UIMgr } from '../../framework/mgr/UIMgr';
 import { TipWindow } from '../common/TipWindow';
 import { HomePage } from '../home/HomePage';
+import { CfgMgr } from '../../framework/mgr/CfgMgr';
 const { ccclass, property } = _decorator;
 
 @ccclass('GamePage')
@@ -10,7 +11,8 @@ export class GamePage extends BasePage {
     public static prefabPath = 'prefabs/game/GamePage'
     
     onOpen(arg?: any): void {
-        
+        const item = CfgMgr.itemCfg.getCfg(1)
+        UIMgr.open(TipWindow, item.name)
     }
 
     onClickBack(){
