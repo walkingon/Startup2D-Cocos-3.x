@@ -11,7 +11,7 @@ export class HomePage extends BasePage {
     
     onOpen(arg?: any): void {
         if(arg && arg.from){
-            UIMgr.open(TipWindow, `欢迎你从 ${arg.from} 来`)
+            UIMgr.open(TipWindow, `从 ${arg.from} 来`)
         }
     }
 
