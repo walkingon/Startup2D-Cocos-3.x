@@ -1,4 +1,4 @@
-import { Vec3, instantiate } from "cc";
+import { ResolutionPolicy, Vec3, View, instantiate } from "cc";
 import { ResMgr } from "./ResMgr";
 import { find, Node } from "cc";
 import { BasePage } from "../base/BasePage";
@@ -10,7 +10,6 @@ interface Openable<T extends BasePage | BaseWindow> {
 }
 
 export class UIMgr {
-    //不写getInstance用起来才知道有多爽
     private constructor() { }
 
     private static uiRoot: Node;
@@ -19,7 +18,9 @@ export class UIMgr {
     private static loading: Node;
 
     public static init() {
-        UIMgr.uiRoot = find('UIRoot')
+        View.instance.setResolutionPolicy(ResolutionPolicy.NO_BORDER)
+
+        UIMgr.uiRoot = find('Canvas')
         UIMgr.pageRoot = UIMgr.uiRoot.getChildByName('PageRoot')
         UIMgr.windowRoot = UIMgr.uiRoot.getChildByName('WindowRoot')
         UIMgr.loading = UIMgr.uiRoot.getChildByName('Loading')
