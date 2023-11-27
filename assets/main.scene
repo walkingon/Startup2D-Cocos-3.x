@@ -184,7 +184,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 667.4846625766871,
+    "_orthoHeight": 796.3358778625955,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -300,7 +300,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Loading",
+    "_name": "BlockInput",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -664,6 +664,9 @@
     "lightProbeInfo": {
       "__id__": 27
     },
+    "postSettings": {
+      "__id__": 28
+    },
     "bakedWithStationaryMainLight": false,
     "bakedWithHighpLightmap": false
   },
@@ -808,5 +811,9 @@
     "_showConvex": false,
     "_data": null,
     "_lightProbeSphereVolume": 1
+  },
+  {
+    "__type__": "cc.PostSettingsInfo",
+    "_toneMappingType": 0
   }
 ]

@@ -15,7 +15,8 @@ export class UIMgr {
     private static uiRoot: Node;
     private static pageRoot: Node;
     private static windowRoot: Node;
-    private static loading: Node;
+    private static blockInput: Node;
+    private static spinner: Node;
 
     public static init() {
         View.instance.setResolutionPolicy(ResolutionPolicy.NO_BORDER)
@@ -23,12 +24,18 @@ export class UIMgr {
         UIMgr.uiRoot = find('Canvas')
         UIMgr.pageRoot = UIMgr.uiRoot.getChildByName('PageRoot')
         UIMgr.windowRoot = UIMgr.uiRoot.getChildByName('WindowRoot')
-        UIMgr.loading = UIMgr.uiRoot.getChildByName('Loading')
-        UIMgr.loading.active = false
+        UIMgr.blockInput = UIMgr.uiRoot.getChildByName('BlockInput')
+        UIMgr.spinner = UIMgr.blockInput.getChildByName('spinner')
+        UIMgr.blockInput.active = false
     }
 
     public static async open<T extends BasePage | BaseWindow>(openable: Openable<T>, openArg?: any) {
-        UIMgr.loading.active = true
+        UIMgr.blockInput.active = true;
+        UIMgr.spinner.active = false;
+        const timerId = setTimeout(() => {
+            UIMgr.spinner.active = true
+        }, 500);//界面打开过程超过0.5s会显示转圈
+
         const result = await ResMgr.loadPrefab(openable.prefabPath)
         if (result) {
             const pwNd = instantiate(result)
@@ -44,7 +51,9 @@ export class UIMgr {
 
             pwCom.onOpen(openArg)
         }
-        UIMgr.loading.active = false
+        
+        clearTimeout(timerId);
+        UIMgr.blockInput.active = false
     }
 
 }
