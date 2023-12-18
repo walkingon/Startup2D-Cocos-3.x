@@ -4,7 +4,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('TipWindow')
 export class TipWindow extends BaseWindow {
-    public static prefabPath = 'prefabs/common/TipWindow';
+    public static readonly prefabPath = 'prefabs/common/TipWindow';
 
     @property(Label)
     private tip: Label;

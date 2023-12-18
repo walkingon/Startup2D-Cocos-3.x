@@ -8,7 +8,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('GamePage')
 export class GamePage extends BasePage {
-    public static prefabPath = 'prefabs/game/GamePage'
+    public static readonly prefabPath = 'prefabs/game/GamePage'
     
     onOpen(arg?: any): void {
         const item = CfgMgr.itemCfg.getCfg(1)

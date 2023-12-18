@@ -8,7 +8,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('LoadingPage')
 export class LoadingPage extends BasePage {
-    public static prefabPath = 'prefabs/loading/LoadingPage'
+    public static readonly prefabPath = 'prefabs/loading/LoadingPage'
     
     async onOpen(arg?: any) {
         await CfgMgr.load()

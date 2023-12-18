@@ -7,7 +7,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('HomePage')
 export class HomePage extends BasePage {
-    public static prefabPath = 'prefabs/home/HomePage'
+    public static readonly prefabPath = 'prefabs/home/HomePage'
     
     onOpen(arg?: any): void {
         if(arg && arg.from){
