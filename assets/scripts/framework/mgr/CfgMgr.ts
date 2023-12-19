@@ -8,10 +8,9 @@ class Cfg<T>{
     private _map: Map<number | string, T> = new Map();
 
     public constructor(jsonData: any, primary: string) {
-        jsonData.forEach((v, i) => {
-            const dt = { ...v }
-            this._list.push(dt)
-            this._map.set(dt[primary], dt)
+        jsonData.forEach((v: T, i: any) => {
+            this._list.push(v)
+            this._map.set(v[primary], v)
         })
     }
 
