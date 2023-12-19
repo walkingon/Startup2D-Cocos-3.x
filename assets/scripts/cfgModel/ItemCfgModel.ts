@@ -1,5 +1,5 @@
 export interface ItemCfgModel{
-    id: number;
-    name: string;
-    desc: string;
+    readonly id: number;
+    readonly name: string;
+    readonly desc: string;
 }

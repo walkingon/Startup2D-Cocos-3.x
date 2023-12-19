@@ -15,11 +15,13 @@ class Cfg<T>{
     }
 
     public getList() {
-        return this._list
+        const list: ReadonlyArray<T> = this._list;
+        return list
     }
 
     public getCfg(key: number | string) {
-        return this._map.get(key)
+        const cfg = this._map.get(key);
+        return cfg;
     }
 }
 

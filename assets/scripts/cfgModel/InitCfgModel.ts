@@ -1,5 +1,5 @@
 export interface InitCfgModel{
-    key: string;
-    value: number;
-    desc: string;
+    readonly key: string;
+    readonly value: number;
+    readonly desc: string;
 }
